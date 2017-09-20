@@ -1,0 +1,24 @@
+{
+  "name": "workflow-boilerplate",
+  "description": "Criação de boilerplate e gulp task para o curso de certificação",
+  "main": "index.js",
+  "authors": [
+    "Alex Batista"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Gulp",
+    "Js",
+    "tasks",
+    "gulp",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/absilva/workflow-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
