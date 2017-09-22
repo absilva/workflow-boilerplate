@@ -3,10 +3,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var htmlmin = require('gulp-htmlmin');
+var del = require('del');
 
-// Test copy file
-gulp.task('copy-files', function(){
-	return gulp.src('source/index.html')
+// Copy HTML files
+gulp.task('copy-html', function(){
+	return gulp.src('source/**/*.html')
 		.pipe(gulp.dest('dist/'));
 });
 
@@ -18,13 +19,9 @@ gulp.task('sass', function () {
 });
 
 // Sass watch
-gulp.task('sass:watch', function () {
+gulp.task('listen', function () {
   gulp.watch('./source/scss/**/*.scss', ['sass']);
-});
-
-// Gulp watch
-gulp.task('gulp:watch', function(){
-	return gulp.watch()
+  gulp.watch('./source/**/*.html', ['minify-html']);
 });
 
 // minify HTML
@@ -33,5 +30,9 @@ gulp.task('minify-html', function() {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('clear', function(){
+  del('dist/');
+})
 
 gulp.task('default', ['sass', 'minify-html']);
